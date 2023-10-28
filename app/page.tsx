@@ -4,11 +4,10 @@ import { GitHubRepositoryResponse, Repository } from "@/interfaces/repository";
 async function getData() {
   const response = await fetch(
     "https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc",
-    { next: { revalidate: 0 } },
   );
 
   if (!response.ok) {
-    throw new Error("Failed to fetch repository data");
+    return [];
   }
 
   const gitHubRepositoryResponse =
