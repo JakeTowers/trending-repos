@@ -4,14 +4,20 @@ import { Repository } from "@/interfaces/repository";
 import { isFavourited, updateFavourites } from "@/services/favourites";
 import { HeartIcon as OutlineHeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as SolidHeartIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface RepositoryCardProps {
   repository: Repository;
 }
 
 const RepositoryCard = ({ repository }: RepositoryCardProps) => {
-  const [favourited, setFavourited] = useState(isFavourited(repository.id));
+  const [favourited, setFavourited] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setFavourited(isFavourited(repository.id));
+    }
+  }, [repository]);
 
   const handleFavouriteClick = (repositoryId: number) => {
     updateFavourites(repositoryId, !favourited);
