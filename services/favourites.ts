@@ -1,24 +1,36 @@
+import { Favourite } from "@/interfaces/favourite";
+import { Repository } from "@/interfaces/repository";
+
 const FAVOURITES_KEY = "favourites";
 const FAVOURITES_DEFAULT_VALUE = "[]";
 
-export const isFavourited = (repositoryId: number) => {
-  const currentFavourites: string[] = JSON.parse(
+export const getFavourites = () => {
+  const currentFavourites: Favourite[] = JSON.parse(
     localStorage.getItem(FAVOURITES_KEY) ?? FAVOURITES_DEFAULT_VALUE,
   );
 
-  return currentFavourites.includes(repositoryId.toString());
+  return currentFavourites;
 };
 
-export const updateFavourites = (repositoryId: number, favourited: boolean) => {
-  let currentFavourites: string[] = JSON.parse(
-    localStorage.getItem(FAVOURITES_KEY) ?? FAVOURITES_DEFAULT_VALUE,
+export const isFavourited = (repositoryId: number) => {
+  const currentFavourites = getFavourites();
+
+  return currentFavourites.some(
+    (favourite) => favourite.id === repositoryId.toString(),
   );
+};
+
+export const updateFavourites = (
+  repository: Repository,
+  favourited: boolean,
+) => {
+  let currentFavourites = getFavourites();
 
   if (favourited) {
-    currentFavourites.push(repositoryId.toString());
+    currentFavourites.push({ id: repository.id.toString(), repository });
   } else {
     currentFavourites = currentFavourites.filter(
-      (favouriteIds) => favouriteIds !== repositoryId.toString(),
+      (favourite) => favourite.id !== repository.id.toString(),
     );
   }
 
