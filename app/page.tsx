@@ -1,9 +1,10 @@
 import RepositoryCard from "@/components/RepositoryCard";
 import { GitHubRepositoryResponse, Repository } from "@/interfaces/repository";
+import { getDateLastSevenDays } from "@/services/date";
 
 async function getData() {
   const response = await fetch(
-    "https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc",
+    `https://api.github.com/search/repositories?q=created:>${getDateLastSevenDays()}&sort=stars&order=desc`,
   );
 
   if (!response.ok) {
