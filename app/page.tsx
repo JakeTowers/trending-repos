@@ -1,3 +1,4 @@
+import RepositoryCard from "@/components/RepositoryCard";
 import { GitHubRepositoryResponse, Repository } from "@/interfaces/repository";
 
 async function getData() {
@@ -32,7 +33,7 @@ export default async function Page() {
   return (
     <main>
       {repositories.map((repository) => (
-        <p key={repository.id}>{repository.name}</p>
+        <RepositoryCard key={repository.id} repository={repository} />
       ))}
     </main>
   );
