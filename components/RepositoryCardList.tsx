@@ -31,9 +31,15 @@ const RepositoryCardList = ({ repositories }: RepositoryCardListProps) => {
         repositories={repositories}
         onSelect={(language) => handleSelectedLanguage(language)}
       />
-      {filteredRepositories.map((repository) => (
-        <RepositoryCard key={repository.id} repository={repository} />
-      ))}
+      <ul>
+        {filteredRepositories.map((repository, index) => (
+          <RepositoryCard
+            key={repository.id}
+            repository={repository}
+            id={index}
+          />
+        ))}
+      </ul>
     </>
   );
 };

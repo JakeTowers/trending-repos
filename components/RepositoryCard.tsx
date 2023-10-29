@@ -8,10 +8,11 @@ import { StarIcon as SolidStarIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 
 interface RepositoryCardProps {
+  id?: number;
   repository: Repository;
 }
 
-const RepositoryCard = ({ repository }: RepositoryCardProps) => {
+const RepositoryCard = ({ id, repository }: RepositoryCardProps) => {
   const [favourited, setFavourited] = useState(false);
 
   useEffect(() => {
@@ -26,7 +27,10 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
   };
 
   return (
-    <div className="m-2 rounded-md border p-2">
+    <li
+      className="m-2 rounded-md border p-2"
+      data-testid={`repository-card-${id}`}
+    >
       <div className="flex">
         <p className="flex-1 p-2 font-bold">{repository.name}</p>
         <div className="flex p-2">
@@ -49,7 +53,7 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
       </a>
       <p className="p-2">{repository.description}</p>
       <p className="p-2">{repository.language}</p>
-    </div>
+    </li>
   );
 };
 
