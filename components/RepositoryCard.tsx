@@ -28,7 +28,7 @@ const RepositoryCard = ({ id, repository }: RepositoryCardProps) => {
 
   return (
     <li
-      className="m-2 rounded-md border p-2"
+      className="m-2 mb-4 rounded-md border bg-slate-900 p-2 shadow-inner shadow-slate-500"
       data-testid={`repository-card-${id}`}
     >
       <div className="flex">

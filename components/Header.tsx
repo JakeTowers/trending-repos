@@ -13,15 +13,20 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="flex justify-end space-x-10 border-b-2 p-6 pr-12">
+      <nav className="flex justify-end space-x-10 border-b-2 p-6 pr-12 shadow-2xl shadow-slate-900">
         <Link
-          className={`${pathname === Routes.HOME && "font-bold"}`}
+          className={`${
+            pathname === Routes.HOME && "font-bold underline underline-offset-8"
+          }`}
           href={Routes.HOME}
         >
           Repositories
         </Link>
         <Link
-          className={`${pathname === Routes.FAVOURITES && "font-bold"}`}
+          className={`${
+            pathname === Routes.FAVOURITES &&
+            "font-bold underline underline-offset-8"
+          }`}
           href={Routes.FAVOURITES}
         >
           Favourites

@@ -24,7 +24,7 @@ const LanguageFilter = ({ repositories, onSelect }: LanguageFilterProps) => {
   return (
     <div className="flex p-2">
       <select
-        className="ml-auto h-8 rounded-md pl-2 pr-2 text-black"
+        className="ml-auto h-8 rounded-md pl-2 pr-2 text-black shadow shadow-slate-100"
         name="language-filter"
         id="language-filter"
         onChange={(e) => handleSelectedLanguage(e.target.value)}
