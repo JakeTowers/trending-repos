@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CodeBracketIcon as OutlineCodeBracketIcon } from "@heroicons/react/24/outline";
 
 enum Routes {
   HOME = "/",
@@ -15,8 +16,9 @@ const Header = () => {
     pathname === route ? "font-bold underline underline-offset-8" : "";
 
   return (
-    <header>
-      <nav className="flex justify-end space-x-10 border-b-2 p-6 pr-12 shadow-2xl shadow-slate-900">
+    <header className="flex border-b-2 p-6 shadow-2xl shadow-slate-900">
+      <OutlineCodeBracketIcon className="h-6 w-6 justify-start" />
+      <nav className="flex flex-1 justify-end space-x-10">
         <Link
           className={getSelectedLinkClassName(Routes.HOME, pathname)}
           href={Routes.HOME}
