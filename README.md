@@ -1,24 +1,58 @@
+# Trending Repositories
+
+This application is deployed and hosted by Vercel, it can be accessed here - https://trending-repos-jake-towers-projects.vercel.app/
+
+## Tech
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ESLint](https://nextjs.org/docs/basic-features/eslint)
+- [Prettier](https://prettier.io/)
+- [husky](https://github.com/typicode/husky)
+- [Playwright](https://playwright.dev/)
+- [Jest](https://jestjs.io/)
+
+## Running locally
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Prerequisites:
 
-First, run the development server:
+- node - v20.9.0
+- npm - 10.1.0
+
+First, install the node packages:
+
+```
+npm i
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Testing
+
+### Unit Tests
+
+```
+npm run test
+```
+
+### E2E Tests
+
+Run the application locally first, then run
+
+```
+npm run test:e2e
+```
 
 ## Learn More
 
