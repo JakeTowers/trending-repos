@@ -12,7 +12,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex space-x-10 border-b-2 p-4 ">
+    <div className="flex justify-end space-x-10 border-b-2 p-6 pr-12">
       <Link
         className={`${pathname === Routes.HOME && "font-bold"}`}
         href={Routes.HOME}

@@ -33,7 +33,10 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
           {repository.starCount}
           <SolidStarIcon className="h-6 w-6 text-yellow-500" />
         </div>
-        <button onClick={() => handleFavouriteClick(repository)}>
+        <button
+          onClick={() => handleFavouriteClick(repository)}
+          className="flex pt-2"
+        >
           {favourited ? (
             <SolidHeartIcon className="h-6 w-6 text-red-500" />
           ) : (
@@ -41,7 +44,7 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
           )}
         </button>
       </div>
-      <a className="p-2 underline" href={repository.url}>
+      <a className="block break-words p-2 underline" href={repository.url}>
         {repository.url}
       </a>
       <p className="p-2">{repository.description}</p>
