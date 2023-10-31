@@ -12,10 +12,8 @@ const FavouritesList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setFavourites(getFavourites());
-      setLoading(false);
-    }
+    setFavourites(getFavourites());
+    setLoading(false);
   }, []);
 
   if (loading) {

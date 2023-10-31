@@ -16,9 +16,7 @@ const RepositoryCard = ({ id, repository }: RepositoryCardProps) => {
   const [favourited, setFavourited] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== undefined) {
-      setFavourited(isFavourited(repository.id));
-    }
+    setFavourited(isFavourited(repository.id));
   }, [repository]);
 
   const handleFavouriteClick = (repository: Repository) => {

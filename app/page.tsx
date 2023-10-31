@@ -9,11 +9,13 @@ export const metadata: Metadata = {
 };
 
 async function getData() {
+  // In a production environment I would add retry logic if this fails
   const response = await fetch(
     `https://api.github.com/search/repositories?q=created:>${getDateLastSevenDays()}&sort=stars&order=desc`,
   );
 
   if (!response.ok) {
+    // In a production environment I would log an error here
     return [];
   }
 

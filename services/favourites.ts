@@ -15,6 +15,7 @@ export const getFavourites = () => {
 export const isFavourited = (repositoryId: number) => {
   const currentFavourites = getFavourites();
 
+  // An object might be more efficient to look up than an array
   return currentFavourites.some(
     (favourite) => favourite.id === repositoryId.toString(),
   );
