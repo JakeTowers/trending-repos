@@ -1,5 +1,9 @@
 # Trending Repositories
 
+To meet the filtering by languages bonus requirement, I took each of the languages from the repositories response and put them into an array, removed the duplicates using a set, and then displayed them in the dropdown. This gives you the ability to filter the results by a language and it populates the dropdown, but it's done on the client.
+
+Alternatively, you could look at passing a selected language into the request and you'd receive repositories only related to that language. But then you would have the challenge of how to populate the dropdown. I looked to see if GitHub provideded a languages API endpoint, but I could not find one that would give me a list of popular languages. It could be hard-coded though, as the benefit of this approach would be that you can server-side render the repository list.
+
 This application is deployed and hosted by Vercel, it can be accessed here - https://trending-repos-jake-towers-projects.vercel.app/
 
 ## Tech
