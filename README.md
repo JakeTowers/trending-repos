@@ -1,10 +1,16 @@
 # Trending Repositories
 
+This application is deployed and hosted by Vercel, it can be accessed here - https://trending-repos-jake-towers-projects.vercel.app/
+
+## Language Filter
+
 To meet the filtering by languages bonus requirement, I took each of the languages from the repositories response and put them into an array, removed the duplicates using a set, and then displayed them in the dropdown. This gives you the ability to filter the results by a language and it populates the dropdown, but it's done on the client.
 
 Alternatively, you could look at passing a selected language into the request and you'd receive repositories only related to that language. But then you would have the challenge of how to populate the dropdown. I looked to see if GitHub provideded a languages API endpoint, but I could not find one that would give me a list of popular languages. It could be hard-coded though, as the benefit of this approach would be that you can server-side render the repository list.
 
-This application is deployed and hosted by Vercel, it can be accessed here - https://trending-repos-jake-towers-projects.vercel.app/
+## Mock Data for Testing
+
+For the Playwright tests I would prefer to have mock API calls and mock data returned, as currently the tests hit the API. However, with Next's app routing, I was unable to get it to be mocked using Playwright or MSW - https://github.com/mswjs/msw/issues/1644.
 
 ## Tech
 
